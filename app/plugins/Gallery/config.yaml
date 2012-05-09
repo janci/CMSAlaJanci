@@ -1,0 +1,22 @@
+name: gallery
+admin:
+  menu:
+    albums:
+      title: Albumy
+      link: 'AdminGallery:default'
+      current: 'AdminGallery:*'
+      weight: 40
+    photos:
+      title: Fotky
+      link: 'AdminPhotos:default'
+      current: 'AdminPhoto:*'
+      weight: 45
+  icon:
+    albums:
+      title: FotoAlbumy
+      link: 'AdminGallery:default'
+      icon: "gallery.png"
+    photos:
+      title: Fotografie
+      link: 'AdminPhotos:default'
+      icon: "photos.png"

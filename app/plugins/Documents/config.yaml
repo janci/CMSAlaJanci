@@ -1,0 +1,13 @@
+name: documents
+admin:
+  menu:
+    documents:
+      title: Dokumenty
+      link: AdminDocuments:default
+      current: 'AdminDocuments:*'
+      weight: 60
+  icon:
+    documents:
+      title: Dokumenty
+      link: 'AdminDocuments:default'
+      icon: "icon.png"

@@ -1,0 +1,21 @@
+{default $plugins = array('pages'=>true, 'gmap'=>true, 'blog'=>true, 'gallery'=>true, 'news'=>true, 'documents'=>true)}
+{use PublishMacros}
+
+{block #content}
+<div id="summar">
+    {foreach $icons as $icon}
+    <div class="box">
+        {if !isset($icon['disabled'])}
+        <a href="{link $icon['link']}">
+        <img src="{publink $icon['icon']}" alt="pages">
+        <div class="box-text">{$icon['title']}</div>
+        </a>
+        {else}
+        <img src="{$icon['icon']}" alt="pages">
+        <div class="box-text">{$icon['title']}</div>
+        {/if}
+    </div>
+    {/foreach}
+
+    <br clear="all">
+</div>

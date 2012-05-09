@@ -1,0 +1,34 @@
+{default style=''}
+{default icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlz
+AAAK7wAACu8BfXaKSAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAASBSURB
+VDhPndRrTNNXGAZwLlmmbplxXpJtXxYSoo4Kci0UiuiQSwuIgAzBGcSBhAkUaysUtFzkoji0IqAi
+yr21HbQU1KKUYp3cJsJslbQOQbluzg0ZiLTl/6wumYsZErOTnC/nzfnlfXOeHFOTRVbWdh+zmcnJ
+PXOzszwTM/PeD5avCD16TT6+2J1Fa9nbvT8pigyYbOGlIJliDRbVIb+MwzL932Cat7tlZ2UORm5V
+oDEzBkwX6+70AO8l7wwmRYav2bdjGynQ1cF2b5DfR+wvqQ5lieGEVpKFluPRYDiRfk2leX78TmB8
+RKj13kCaNirQdypkM2XGz9m2Lc7DOTmDssWgupRieCDMIQrd/fXJnt7bpUW8D29UVZgtCu8PDypu
+LjuKH/gFYOwKAp28EccdQ3S/+BZjkJNvGEw9rr/rnkpwHV1eMMjWukRnGxVri6vTW9H0uK9LxjqF
+mOiug0Z2FowwXzA30SDZl47eIxcxnM4Hl0oGL4IGrqcTmGQrGOGHh+meny6IdgjyA5+0XZx/oriA
+otRYxAT7wTg+vvKkwt/ZDjn+QUTxbl88UdZAfpoD7ha7VyjB9iAnLAgOyc+9PyDjtfXUcvFt2Da0
+lmdDUMAxwnQEuZPhZbMWfZJCDCvL/97t5zk46LQeB93sxMUJseYLolpJtrviTNxUZR4TYx18jHeJ
+8GP9aXCigrFpvQWkPDYxcO0UBq4WQH05AywjyKRs7MsMoi97AzzbVWMeLTrkFl6VUNdSnaxrKk7D
+qBEc6xAYu6mAWpyPQEcr4lgEjdCIM9EvTIOqhg02ZQMSHEmTyV4eq98Adwr3xQRUBb8I5fsQXH74
+3PXGdMNj+XkMtZTgUXMhHkrzUJMSqY8kWRGKgijDvaokPGzMQ+k3XoYYmy+IeCplx2vwkCLLnCbw
+lYdJ7XFIvg45N21wpnUzNFfyoG3IgUachX5RGnEixHa+LWMtMcz30WskucZaLgYFO4n7PEtDabRD
+l+ho9L9jb22kx/tI7KePKNbhOyUZJ5VuEDcFQl3NhLqWBa30GP4Qf0bMNC3BpGQNMSz0NIwKqfrn
+DSsx3bAU04Ll81Ni28Ovu4xuZ5tHyryss5T2+0+1u57Iv7W1PqY+99m9+uz5RzIeHstOglNZAkWz
+B+buvAddjxnmuk3x8rYpZuWmRnQVpoSr22aVu9987XCRdin5rIprUdD73OJEt/62IFvXX5c+f+dy
+hiGAJ8HK3F5QiiTobLeHrs8ELztMMNtqhj9Fls+mGzdG/Cc61AuqKOvCPgO9vB8h1VqElPfod11U
+6vzKeg3bKjXwuvQAa3m9oJbU6X/vWaV62blMOqtckTJzxYW0YA7dSlVFPhX9iPn+ERKahsFoHgfj
++gQSr4wgtm4QwdUauJSqYcm7OxJWyf9cp3JbOND/6MECrZfjOdVvsfWDSLw6igOtT3FA8RSJsjHE
+iYcQVqsF6cxPz6mX7h+Mlg4s/tu8QnPax03dLqhJSY2PM1myUXXS9Qki6cYEGFdHDcazjj2in1mu
+pWqrwzdH3or9BR1TjqexYwBhAAAAAElFTkSuQmCC"}
+
+{ifset $counter}
+<div style="width: 90px; margin-left: 65px;">
+    <img style="float: left; margin-right: 15px;" src="{$icon}">&nbsp;&nbsp;
+    <span class="counter" style="{!$style}">
+            {$counter}
+    </span>
+</div>
+{/ifset}

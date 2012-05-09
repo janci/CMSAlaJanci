@@ -1,0 +1,24 @@
+{var $robots = noindex}
+
+{block #content}
+<div id="subpage" class="company-settings">
+    <table id="products" class="grid">
+        <tr class="head">
+            <th width="70%">Súbor</th>
+            <th width="20%">Pridaný</th>
+            <th width="10%">Akcie</th>
+        </tr>
+        {foreach $documents as $document}
+            <tr class="odd" n:tag-if="$iterator->isEven()">
+                <td class="lefttext">{$document['file']}</td>
+                <td class="centertext">{$document['created']|date:"d.m.Y"}</td>
+                <td class="righttext">
+                        {*<a href="{link edit id=>$document['id']}"><img src="{$basePath}/admin_v1/images/admin/edit.png" alt="edit"></a> *}
+                        <a href="{link remove! id=>$document['id']}"><img src="{$basePath}/admin_v1/images/admin/delete.png" alt="delete"></a>
+                </td>
+            </tr>
+        {/foreach}
+        <tr class="tr-add-button"><td colspan="3" class="add-button"><a href="{link add}">Pridať dokument</a></td></tr>
+    </table>
+    <br clear="all">
+</div>

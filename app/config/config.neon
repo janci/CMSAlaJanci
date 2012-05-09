@@ -1,0 +1,44 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+common:
+	parameters:
+		plugins:
+			copyright:
+				year: 2012
+				company_name: Švantner Ján
+				company_url: http://www.janci.net
+
+	php:
+		date.timezone: Europe/Prague
+		# zlib.output_compression: yes
+
+
+	nette:
+		application:
+			errorPresenter: Error
+
+		session:
+			expiration: 14 days
+
+		database:
+			default:
+				dsn: 'sqlite:%appDir%/database/data.sq3'
+				user:
+				password: 
+
+
+	services:
+		authenticator: Authenticator
+		database: @nette.database.default
+		publisher: Publisher
+
+	factories:
+
+
+production < common:
+
+development < common:

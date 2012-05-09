@@ -1,0 +1,13 @@
+name: news
+admin:
+  menu:
+    news:
+      title: Aktuality
+      link: 'AdminNews:default'
+      current: 'AdminNews:*'
+      weight: 30
+  icon:
+    news:
+      title: Aktuality
+      link: 'AdminNews:default'
+      icon: "icon.png"

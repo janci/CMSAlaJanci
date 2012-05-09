@@ -1,0 +1,8 @@
+{default current="selected"}
+<ul>
+	<li><a href="{link Page:default}" n:class="$presenter->isLinkCurrent('Page:default')? $current">O nás</a></li>
+	<li><a href="{link Page:dokumenty}" n:class="$presenter->isLinkCurrent('Page:dokumenty')? $current">Dokumenty</a></li>
+	<li><a href="{link Page:aktuality}" n:class="$presenter->isLinkCurrent('Page:aktuality')? $current">Aktuality</a></li>
+	<li><a href="{link Page:fotoalbum}" n:class="$presenter->isLinkCurrent('Page:fotoalbum')? $current">Fotoalbum</a></li>
+	<li class='last'><a href="{link Page:kontakt}" n:class="$presenter->isLinkCurrent('Page:kontakt')? $current">Kontakt</a></li>
+</ul>

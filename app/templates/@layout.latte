@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="" />
+  <meta name="title" content="" />
+  <meta name="description" content="" />
+  <title>Konrádovce | Okres Rimavská Sobota</title>
+
+<!-- Stylesheets Start //-->
+<link rel="shortcut icon" href="{$basePath}/images/favicon.ico"/>
+<link href="{$basePath}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$basePath}/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+<link href="{$basePath}/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+
+<!-- Stylesheets Start End //-->
+<!-- Javascript Start //-->
+<script type="text/javascript" src="{$basePath}/js/jquery.js"></script>
+<script type="text/javascript" src="{$basePath}/js/jqueryslidemenu.js"></script>
+<script type="text/javascript" src="{$basePath}/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="{$basePath}/js/cufon.js"></script>
+<script type="text/javascript" src="{$basePath}/js/fonts/ColaborateLight.js"></script>
+<script type="text/javascript" src="{$basePath}/js/functions.js"></script>
+<script type="text/javascript" src="{$basePath}/js/jquery.lightbox-0.5.js"></script>
+
+
+<!-- Javascript End //-->
+
+</head>
+<body>
+  <div id="wrapper">
+    <div id="topwrapper"></div>
+    <div id="mainwrapper">
+      <!-- Header Start -->
+      <div id="header">
+        <div class="center">
+          <!-- Logo Start -->
+          <div id="logo">
+            <a href="{link Page:default}"><img src="{$basePath}/images/logo.png" alt="logo" /></a>
+          </div>
+          <!-- Logo End -->
+          
+          <div id="headerright">
+            <!-- Menu Navigation Start --> 
+            <div id="mainmenu">
+              <div id="myslidemenu" class="jqueryslidemenu">
+                {include menu.latte}
+              </div>
+            </div>
+            <!-- Menu Navigation End -->
+          </div>
+        </div>
+      </div>
+      <!-- Header End  -->
+      
+      <!-- Page Heading --> 
+      <div id="page-heading">
+        <img src="{$basePath}/images/page-heading1.jpg" alt="" />
+        <div class="heading-text">
+          <h3>Obec Konrádovce</h3>
+          <p>oficiálna stránka obce</p>
+        </div>
+      </div>
+      <!-- Page Heading End -->
+      <div class="clear"></div>
+      
+      <div class="center">
+        <!-- Main Content Wrapper -->
+        <div class="maincontent">
+		  {include #content}
+        </div>
+        <!-- Main Content Wrapper End -->
+        
+        <!-- Sidebar -->
+        <div id="sidebar">
+          
+          <!-- Sidebar Box -->
+          <div class="sidebar">
+            <div class="sidebartop"></div>
+            <div class="sidebarmain">
+              <div class="sidebarcontent">
+                <h4 class="sidebarheading">Počasie - Konrádovce</h4>
+                {control wheather city=>"Rimavská Sobota", temp_style=>"font-size: 20px; color: green;"}
+              </div>
+            </div>
+            <div class="sidebarbottom"></div>
+          </div>          
+          <!-- Sidebar Box End -->
+          
+          <!-- Sidebar Box -->
+          <div class="sidebar">
+            <div class="sidebartop"></div>
+            <div class="sidebarmain">
+              <div class="sidebarcontent">
+                <h4 class="sidebarheading">Návštevnosť stránky</h4>
+                {control pagecounter token=>'5219c27d8283bcee63a3735925012782', style=>'display: block; float: left; font-size: 20px; color: green;'}
+              </div>
+            </div>
+            <div class="sidebarbottom"></div>
+          </div>          
+          <!-- Sidebar Box End -->
+          
+        </div>
+        <!-- Sidebar End -->
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <!-- Footer Start -->
+    <div id="bottomwrapper"></div>
+    <div id="footer">
+     
+      
+      <div class="bottom">
+        <!-- Footer Menu -->
+        <div class="footermenu">
+          {include menu.latte}
+        </div>
+        <!-- Footer Menu End -->
+        
+        <!-- Site Copyright -->
+        <div class="copyright">
+          <p>{control copyright}</p>
+        </div>
+        <!-- Site Copyright End -->     
+      </div>
+    <!-- Footer End  -->
+  </div>
+  <!-- Piwik --> 
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.janci.net/" : "http://piwik.janci.net/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 10);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://piwik.janci.net/piwik.php?idsite=10" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+</body>
+</html>

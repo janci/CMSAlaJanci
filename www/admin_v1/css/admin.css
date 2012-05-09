@@ -1,0 +1,117 @@
+body {
+	font: 16px/1.5 "Trebuchet MS", "Geneva CE", lucida, sans-serif;
+	color: #333;
+	background-color: #fff;
+        background-image: url('../images/admin/login.jpg');
+}
+
+h1 {
+	font-size: 150%;
+	color: #123A5E;
+}
+
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+
+a img {border: 0px solid white;}
+
+div.flash {
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+ul.error{
+    background-color: #FFAE97;
+    border: 1px red dashed;
+    padding-left: 1px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+ul.error li{
+    display: block;
+    background-image: url('../images/admin/warning.png'); background-repeat: no-repeat; background-position: 2px 2px;
+    list-style-type: none;
+    padding-top: 2px;
+    padding-left: 24px;
+    font-size: 14px;
+}
+
+h1 {margin-left: 30px;}
+.righttext {text-align: right;}
+.centertext {text-align: center;}
+.lefttext {text-align: left;}
+
+ul#menu {margin: auto; width: 630px;}
+ul#menu li {display: inline; }
+ul#menu li a {text-decoration: none; color: #123A5E; padding: 2px 10px 2px 10px; background-color: white; border: 1px solid black;}
+ul#menu li a.current {background-color: gold;}
+ul#menu li a:hover {background-color: #123A5E; color: white;}
+
+#login {width: 350px; background-color: #7CC1FF; margin: auto; padding: 2px 15px 20px 15px; border: 3px double black; margin-top: 50px; background-image: url('../images/admin/lock.png'); background-repeat: no-repeat; background-attachment:fixed; background-position: 265px 58px;  }
+#admin-content {width: 800px; margin: auto; background-color: #7CC1FF; padding: 10px; border: 3px double black;}
+#summar {width: 690px; margin: auto; padding-top: 20px;}
+#summar div.box {width: 128px; float: left; padding: 10px 50px 10px 50px;}
+#summar .box-text {text-align: center;}
+#copyright {text-align: center; font-size: 11px;}
+#summar a {text-align: center; color: black; text-decoration: none;}
+#summar a:hover {color: #123A5E;}
+#subpage form th {width: 100px; text-align: right; padding-right: 5px; font-size: 14px;}
+#subpage form fieldset {width: 300px; float: left;}
+#subpage form legend {font-size: 14px;}
+#subpage h2 {margin-left: 30px; font-size: 18px; display: inline; float: right; padding: 5px; border: 1px dotted #316A9B; padding-left: 40px; text-align: right;}
+div.company-settings form {margin-left: 30px; width: 300px;}
+div.company-settings h2 {background: url('../images/admin/plugins/company-settings/company.png') no-repeat;}
+div.company-settings .leftphoto {width: 330px; margin-left: 60px; margin-bottom: 30px; border: 1px solid black; padding: 2px; margin-top: 30px;}
+
+table.grid {width: 700px; margin: auto; margin-top: 40px; font-size: 15px; border-collapse: collapse; border: 1px solid #28425a}
+table.grid th {padding: 0px; border-spacing:0px; border-collapse: none; background: url('../images/admin/grid-head.png'); color: #C1FFC1; opacity: 1;}
+table.grid td {border: 1px solid black; padding: 2px; padding-right: 7px; padding-left: 7px; color: #003;}
+table.grid tr.odd {background-color: cornflowerblue;}
+table.grid tr.cred {background-color: #FFAE97;}
+table.grid tr.red {background-color: #FF7060;}
+table.grid tr.green {background-color: #C1FFC1;}
+table.grid tr.yellow {background-color: yellow;}
+table.grid tr.gray {background-color: #EEE;}
+table.grid tr.gray td {color: #AAA; font-style: italic;}
+
+div.contact-form {padding-top: 50px;}
+div.contact-one {font-size: 14px; margin: auto; margin-bottom: 20px; border: 1px dashed black; width: 80%; padding: 3px;}
+div.contact-message {background-color: #DDD; padding: 10px; padding-bottom: 20px;}
+.contact-name {margin-right: 20px; text-align: right;}
+.contact-email {color: #123A5E; text-decoration: none; padding-top: 2px; }
+.contact-date {font-size: 10px; text-align: right; margin-right: 24px; }
+
+/*#sponzored-links {position: fixed; right: 10px; bottom: 10px;}*/
+#sponzored-links img {border: 1px solid black; padding: 1px;}
+#title-sponzored-links {text-align: center; font-size: 10px;}
+.splink {text-align: center;}
+
+div.pages-edit form {margin-left: 30px; width: 450px;}
+div.pages-edit textarea {width: 300px;}
+#subpage.pages-edit form fieldset {width: 430px; float: left;}
+
+.message-img {width: 48px; height: 48px; float: right; margin-top: 3px; }
+.add-button {text-align: center;}
+.add-button a {text-decoration: none; font-size: 13px; color: #028;}
+.add-button a:hover {color: #02F;}
+.tr-add-button {background-color: #FFF9D7;}
+.tr-ad-button {background-color: #FFBBA4;}
+
+.qq-uploader {margin-top: 12px; margin-left: 10px;}

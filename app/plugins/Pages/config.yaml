@@ -1,0 +1,13 @@
+name: pages
+admin:
+  menu:
+    pages:
+      title: Stránky
+      link: 'AdminPages:default'
+      current: 'AdminPages:*'
+      weight: 10
+  icon:
+    pages:
+      title: Stránky
+      link: 'AdminPages:default'
+      icon: "icon.png"

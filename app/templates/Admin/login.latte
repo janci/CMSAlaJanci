@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="description" content="Page Administration">
+	<meta name="robots" content="nofollow, noindex">
+
+	<title>Eshop administration</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/admin_v1/css/admin.css" type="text/css">
+	<link rel="stylesheet" media="print" href="{$basePath}/admin_v1/css/print.css" type="text/css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+</head>
+
+<body>
+	{foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
+	<div id="login">
+    <h1>Prihlásenie</h1>
+
+    {control signInForm}
+</div>
+</body>
+</html>

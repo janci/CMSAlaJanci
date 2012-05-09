@@ -1,0 +1,77 @@
+{**
+ * My Application layout template.
+ *
+ * @copyright  Copyright (c) 2010 John Doe
+ * @package    MyApplication
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optinal)
+ * @param array    $flashes  flash messages
+ *}
+{default $portal_type = presentation}
+{default $showmenu = true}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="description" content="Administratiomn for our page">
+	<meta name="robots" content="nofollow, noindex">
+
+	<title n:if="$portal_type=='eshop'">Eshop administration</title>
+	<title n:if="$portal_type=='presentation'">Page administration</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/admin_v1/css/admin.css" type="text/css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script src="{$basePath}/admin_v1/uploader/fileuploader.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="{$basePath}/admin_v1/uploader/fileuploader.css" type="text/css">
+        <script type="text/javascript" src="{$basePath}/admin_v1/admin.js"></script>
+</head>
+
+<body>
+    <div id="admin-content">
+        <div id="header">
+            <h1 n:if="$portal_type=='eshop'">Administrácia elektronického obchodu</h1>
+            <h1 n:if="$portal_type=='presentation'">Administrácia stránky</h1>
+        </div>
+        <hr>
+	{foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
+        {if $showmenu == true}
+        <ul id="menu">
+            <li><a href="{link Admin:default}" class="{ifCurrent}current{/ifCurrent}">Home</a></li>
+            {foreach $menu as $menuitem}
+            <li n:class="$iterator->isLast()? last">
+                <a href="{link $menuitem['link']}" class="{ifCurrent $menuitem['current']}current{/ifCurrent}">{$menuitem['title']}</a>
+            </li>
+            {/foreach}
+{*            <li n:ifset="$plugins['pages']"><a href="{link Admin:pages}" class="{ifCurrent 'Admin:pages'}current{/ifCurrent}">Stránky</a></li>
+            <li n:ifset="$plugins['gmap']"><a href="{link Admin:gmap}" class="{ifCurrent 'Admin:gmap'}current{/ifCurrent}">Google Mapa</a></li>
+<li n:ifset="$plugins['news']"><a href="{link Admin:news}" class="{ifCurrent 'Admin:news'}current{/ifCurrent}">Aktuality</a></li>
+<li n:ifset="$plugins['gallery']"><a href="{link Admin:gallery}" class="{ifCurrent 'Admin:gallery'}current{/ifCurrent}">Albumy</a></li>
+<li n:ifset="$plugins['gallery']"><a href="{link Admin:photos}" class="{ifCurrent 'Admin:photos'}current{/ifCurrent}">Fotky</a></li>
+<li n:ifset="$plugins['documents']"><a href="{link Admin:documents}" class="{ifCurrent 'Admin:documents'}current{/ifCurrent}">Dokumenty</a></li>
+            <li n:ifset="$plugins['eshop']"><a href="{link Admin:products}" class="{ifCurrent}current{/ifCurrent}">Produkty</a></li>
+            <li n:ifset="$plugins['eshop']"><a href="{link Admin:invoices}" class="{ifCurrent}current{/ifCurrent}">Objednávky</a></li>
+            <li><a href="{link Admin:companySettings}" class="{ifCurrent}current{/ifCurrent}">O spoločnosti</a></li>
+            <li n:ifset="$plugins['contact-form']"><a href="{link Admin:kontaktForm}" class="{ifCurrent}current{/ifCurrent}">Kontaktný formulár</a></li>
+*}
+        </ul>
+        <hr>
+        {/if}
+	{include #content}
+        <hr>
+        <div id="sponzored-links">
+            <div id="title-sponzored-links">Sponzori projektu:</div>
+            <div class="splink">
+            <a href="http://www.janci.net"><img height="50px" width="140px" src="{$basePath}/admin_v1/images/sponzored/jancinet.png" alt="www.janci.net"></a>
+            </div>
+        </div>
+        <hr>
+        <div id="copyright">&copy; 2012 Jan Švantner - CMS AlaJanci verzia 1.0</div>
+    </div>
+</body>
+</html>

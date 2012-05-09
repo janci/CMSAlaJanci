@@ -1,0 +1,22 @@
+<script type="text/javascript">
+jQuery(function($){
+	$('.lightbox').lightBox();
+	$('.lightboxgall a').lightBox();
+});
+</script>
+
+<div class="galleries">
+{foreach $gallery as $onegallery}
+    <div class="gallery">
+        <h4>{$onegallery->name}</h4>
+        <div class="lightboxgall">
+            <div class="limg" n:foreach="$onegallery->related('photo')->where('photo.remove',0) as $foto">
+                <a href="{$basePath}/gallery/middle/{$foto->filename}">
+                    <img src="{$basePath}/gallery/small/{$foto->filename}" alt="{$foto->filename}" title="{$foto->filename}" class="proimg" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <br clear="all" /><br />
+{/foreach}
+</div>

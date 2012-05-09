@@ -1,0 +1,6 @@
+{ifset $wheather->icon, $wheather->teplota}
+<div style="text-align: center;">
+    <img src="{$wheather->icon}" alt="wheather api janci"><br>
+    <span class="temperature" style="{!$temp_style}">{$wheather->teplota} °C</span>
+</div>
+{/ifset}

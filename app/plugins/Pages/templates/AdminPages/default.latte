@@ -1,0 +1,25 @@
+{var $robots = noindex}
+
+{block #content}
+<div id="subpage" class="company-settings">
+    <table id="products" class="grid">
+        <tr class="head">
+            <th width="70%">Stránka</th>
+            <th width="20%">Url</th>
+            <th width="10%">Akcie</th>
+        </tr>
+        {foreach $pages as $page}
+            <tr class="odd" n:tag-if="$iterator->isEven()">
+                <td class="lefttext">{$page['title']}</td>
+                <td class="righttext">{$page['url']}</td>
+                <td class="righttext">
+					<a href="{link edit id=>$page['url']}"><img src="{$basePath}/admin_v1/images/admin/edit.png" alt="edit"></a> 
+					{*<a href="{link remove! id=>$page['url']}"><img src="{$basePath}/admin_v1/images/admin/delete.png" alt="delete"></a>*}
+                </td>
+            </tr>
+        {/foreach}
+        {*<tr class="tr-add-button" n:if="$allowAdd"><td colspan="3" class="add-button"><a href="{link add}">Pridať stránku</a></td></tr>
+        <tr class="tr-ad-button" n:if="$showAd"><td colspan="3" class="add-button">Zakúpiť ďalšiu stránku (3€)</td></tr>*}
+    </table>
+    <br clear="all">
+</div>

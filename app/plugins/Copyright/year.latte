@@ -1,0 +1,5 @@
+{default $created_year = 2012}
+{default $year = date('Y')}
+{default $sep = '-'}
+
+{$created_year==$year? $year:"{$created_year}{$sep}{$year}"}

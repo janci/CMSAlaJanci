@@ -1,0 +1,7 @@
+<div class="documents" n:if="$documents->count()>0">
+{foreach $documents as $document}
+    <div class="document">
+        <a href="{$basePath}/documents/{$document->file}" title="{$document->description}">[{$document->created|date:"d.m.Y"}] {$document->description}</a>
+    </div>
+{/foreach}
+</div>
