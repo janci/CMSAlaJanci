@@ -61,7 +61,7 @@ class BaseAdminPresenter extends BasePresenter {
                         }
                         
                         $ds = DIRECTORY_SEPARATOR;
-                        $wwwDir = dirname(dirname(dirname($plugin->getReflection()->getFileName()))).$ds.'www';
+                        $wwwDir = dirname($plugin->getReflection()->getFileName()).$ds.'www';
                         $publisher->publicDirectory($plugin->getName(), $wwwDir);
                         $icon['icon'] = $plugin->getName().'.www:'.$icon['icon'];
                         //$icon['icon'] = 'data:image/png;base64,'.base64_encode(file_get_contents($wwwDir.$ds.$icon['icon']));
@@ -84,7 +84,7 @@ class BaseAdminPresenter extends BasePresenter {
         public function findLayoutTemplateFile() {
             if($this->getName()=='Admin') return parent::findLayoutTemplateFile ();
             
-            $dir = dirname(dirname(dirname(dirname($this->getReflection()->getFileName()))));
+            $dir = APP_DIR; //dirname(dirname(dirname(dirname($this->getReflection()->getFileName()))));
             $ds = DIRECTORY_SEPARATOR;
             
             return $dir.$ds. 'templates'.$ds.'Admin'.$ds.'@layout.latte';

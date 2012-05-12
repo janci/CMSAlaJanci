@@ -11,6 +11,8 @@ abstract class CMSControl extends NControl
 {
     protected $db;
     private $default_template;
+    private $plugin;
+    
     protected function attached($presenter) {
         parent::attached($presenter);
         $this->db = $presenter->getService('database');
@@ -23,16 +25,18 @@ abstract class CMSControl extends NControl
         return $this->default_template=$template;
     }
     
+    public function setPlugin(BasePlugin $plugin){
+        $this->plugin = $plugin;
+    }
+    
+    public function getPlugin(){
+        if(!isset($this->plugin))
+            throw new PluginException("Not any initialize plugin for component.");
+        return $this->plugin;
+    }
+    
     public function getConfig(){
-        $dir = dirname(dirname(dirname($this->getReflection()->getFileName())));
-        $config_file = $dir.DIRECTORY_SEPARATOR.'config.yaml';
-
-        if(file_exists($config_file)){
-            return spyc_load_file($config_file);
-        } else {
-            $name = $this->getReflection()->getName();
-            return array('name'=>$name);
-        }
+        $this->getPlugin()->getConfig();
     }
     
     public function configure($config){

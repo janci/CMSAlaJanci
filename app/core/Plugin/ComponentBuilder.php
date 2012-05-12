@@ -21,10 +21,16 @@ class ComponentBuilder extends NObject {
     private $content;
     
     /**
-     * as $name => CMSControl
+     * as $name => BasePlugin
      * @var array
      */
     private $plugins;
+    
+    /**
+     * as $name=>CMSControl
+     * @var array
+     */
+    private $controls;
     
     public function __construct($presenter){
         $this->presenter = $presenter;
@@ -49,7 +55,7 @@ class ComponentBuilder extends NObject {
     /**
      * attached components to presenter 
      */
-    public function attachComponents(){        
+    public function loadPlugins(){        
         $robotloader = $this->presenter->getService('robotloader');
         $classes = $robotloader->getIndexedClasses();
         $diparams = $this->presenter->getContext()->getParameters();
@@ -57,14 +63,18 @@ class ComponentBuilder extends NObject {
         foreach($classes as $class=>$filename){
             if(!class_exists($class)) continue;
             
-            if(is_subclass_of($class, 'CMSControl')){
+            if(is_subclass_of($class, 'BasePlugin')){
                 $plugin_name = NStrings::lower($class);
-                $control = new $class;
+                $plugin = new $class;
                 
-                if(isset($config[$plugin_name])) $control->configure($config[$plugin_name]);
-                $this->presenter[$plugin_name] = $control;
-                $this->plugins[$plugin_name] = $control;
-                //if($plugin_name=='news') $control->getConfig();
+                $controls = $plugin->getControls();
+                foreach($controls as $control){
+                    $control->setPlugin($plugin);
+                    if(isset($config[$plugin_name])) $control->configure($config[$plugin_name]);
+                    $this->presenter[$plugin_name] = $control;
+                    $this->controls[NStrings::lower($control->getName())] = $control;
+                    $this->plugins[$plugin_name] = $plugin;
+                }
             }
         }
     }
@@ -72,12 +82,29 @@ class ComponentBuilder extends NObject {
     /**
      * get plugin by name
      * @param string $pluginname
-     * @return CMSControl
+     * @return BasePlugin
      * @throws PluginException 
      */
     public function getPlugin($pluginname){
         if (!isset($this->plugins[$pluginname])) throw new PluginException("Missing plugin `".$pluginname."`");
         return $this->plugins[$pluginname];
+    }
+    
+    /**
+     * get all loaded controls from plugins 
+     */
+    public function getControls(){
+        return $this->controls;
+    }
+    
+    /**
+     * get control by name
+     * @param string
+     * @return CMSControl
+     */
+    public function getControl($name){
+        if (!isset($this->controls[$name])) throw new PluginException("Missing control with name `".$name."`");
+        return $this->controls[$name];
     }
     
     /**
@@ -91,9 +118,9 @@ class ComponentBuilder extends NObject {
      * run filter for content 
      */
     public function filter(){
-        foreach($this->plugins as $plugin){
-            if($plugin instanceof IFilter)
-                $this->content = $plugin->filter($this->content);
+        foreach($this->controls as $control){
+            if($control instanceof IFilter)
+                $this->content = $control->filter($this->content);
         }
     }
 }

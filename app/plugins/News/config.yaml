@@ -1,4 +1,5 @@
 name: news
+controls: [news]
 admin:
   menu:
     news:

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/home/weby/cms_projects/skeleton/app/core/Plugin/BasePlugin.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/core/Plugin/ComponentBuilder.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/plugins/Gallery/GalleryPlugin.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/core/Control/CMSControl.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/presenters/BaseAdminPresenter.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/presenters/BasePresenter.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/core/Publisher/Publisher.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/plugins/Documents/DocumentsPlugin.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/plugins/News/NewsPlugin.php</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/plugins/Documents/config.yaml</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/plugins/News/config.yaml</file>
+        <file>file:/home/weby/cms_projects/skeleton/app/plugins/Pages/PagesPlugin.php</file>
+    </open-files>
 </project-private>

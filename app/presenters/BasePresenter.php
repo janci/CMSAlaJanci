@@ -20,7 +20,7 @@ abstract class BasePresenter extends NPresenter
     
     protected function beforeRender() {
         parent::beforeRender();
-        $this->component_builder->attachComponents();
+        $this->component_builder->loadPlugins();
         $this->component_builder->filter();
     }
     

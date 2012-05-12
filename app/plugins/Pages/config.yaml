@@ -1,4 +1,5 @@
 name: pages
+controls: [page]
 admin:
   menu:
     pages:
