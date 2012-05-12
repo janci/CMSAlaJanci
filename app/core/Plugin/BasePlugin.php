@@ -19,6 +19,9 @@ abstract class BasePlugin extends NObject {
     /** @var array */
     private $controls;
     
+    /** @var BasePresenter */
+    private $presenter;
+    
     /**
      * initialize all controls for plugin from configuration 
      */
@@ -63,6 +66,15 @@ abstract class BasePlugin extends NObject {
         } else {
             $name = $this->getReflection()->getName();
             return $this->config = array('name'=>$name);
+        }
+    }
+    
+    public function installSql(NConnection $connection){
+        $dir = dirname($this->getReflection()->getFileName());
+        $config_file = $dir.DIRECTORY_SEPARATOR.'sql'.DIRECTORY_SEPARATOR.'config.nsql';
+        if(file_exists($config_file)) {
+            $sql = Sql::fromNsql($config_file);
+            $sql->run($connection);
         }
     }
 }
