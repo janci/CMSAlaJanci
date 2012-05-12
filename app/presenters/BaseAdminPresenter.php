@@ -31,6 +31,7 @@ class BaseAdminPresenter extends BasePresenter {
             /* @var $publisher Publisher */
             $publisher = $this->getService('publisher');
             foreach($plugins as $plugin){
+                $plugin->initializeAdminControls($this->getService('database'), $this);
                 $config = $plugin->getConfig();
                 if(isset($check_names[$config['name']])) continue;
                 $check_names[$config['name']] = true;

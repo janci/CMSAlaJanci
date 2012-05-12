@@ -2,23 +2,5 @@
 
 {block #content}
 <div id="subpage" class="company-settings">
-    <table id="products" class="grid">
-        <tr class="head">
-            <th width="70%">Nadpis novinky</th>
-            <th width="20%">Pridané</th>
-            <th width="10%">Akcie</th>
-        </tr>
-        {foreach $news as $new}
-            <tr class="odd" n:tag-if="$iterator->isEven()">
-                <td class="lefttext">{$new['title']}</td>
-                <td class="centertext">{$new['created']|date:"d.m.Y"}</td>
-                <td class="righttext">
-                        <a href="{link edit id=>$new['id']}"><img src="{$basePath}/admin_v1/images/admin/edit.png" alt="edit"></a> 
-                        <a href="{link remove! id=>$new['id']}"><img src="{$basePath}/admin_v1/images/admin/delete.png" alt="delete"></a>
-                </td>
-            </tr>
-        {/foreach}
-        <tr class="tr-add-button"><td colspan="3" class="add-button"><a href="{link add}">Pridať novinku</a></td></tr>
-    </table>
-    <br clear="all">
+    {control newsgrid}
 </div>

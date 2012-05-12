@@ -1,0 +1,18 @@
+datagrid:
+  newsgrid:
+    table: new
+    add:
+       title: Pridať novinku
+       link: 'AdminNews:add'
+    actions:
+      edit: 'AdminNews:edit'
+      delete: 'remove!'
+    columns:
+      title:
+        title: Nadpis novinky
+        type: text
+        width: 70%
+      created:
+        title: Pridané
+        type: date
+        created: 20%

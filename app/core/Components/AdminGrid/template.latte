@@ -1,0 +1,19 @@
+<table class="grid">
+        <tr class="head">
+            <th style="width: {!$column->getWidth()}" n:foreach="$columns as $column">{$column->getTitle()}</th>
+            <th width="10%">Akcie</th>
+        </tr>
+        {foreach $items as $item}
+            <tr class="odd" n:tag-if="$iterator->isEven()">
+                <td n:foreach="$columns as $column" class="{$column->getAlign()}text">{!$column->filter($item->{$column->getColumnName()} )}</td>
+                <td class="righttext">
+                        {ifset $actions}
+                            <a n:foreach="$actions as $action" href="{$action->getLink($control,$item->id)}" title="{$action->getTooltip()}"><img src="{$basePath}{$action->getIcon()}" alt="{$action->getTooltip()}"></a> 
+                        {/ifset}
+                        {*<a href="{link remove! id=>$album['id']}"><img src="{$basePath}/admin_v1/images/admin/delete.png" alt="delete"></a>*}
+                </td>
+            </tr>
+        {/foreach}
+        <tr class="tr-add-button" n:ifset="$add"><td colspan="{count($columns)+1}" class="add-button"><a href="{plink $add['link']}">{$add['title']}</a></td></tr>
+    </table>
+    <br clear="all">
