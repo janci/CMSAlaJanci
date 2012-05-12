@@ -1,0 +1,6 @@
+new:
+    id: primary
+    title: varchar
+    content: text
+    created: timestamp
+    remove: boolean

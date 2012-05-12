@@ -12,3 +12,4 @@ admin:
       title: Dokumenty
       link: 'AdminDocuments:default'
       icon: "icon.png"
+      weight: 60

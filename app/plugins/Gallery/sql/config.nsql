@@ -1,0 +1,13 @@
+album:
+    id: primary
+    name: varchar
+    created: timestamp
+    remove: boolean
+photo:
+    id: primary
+    filename: varchar
+    album_id:
+        type: int
+        foreign: album.id
+    created: timestamp
+    remove: boolean		

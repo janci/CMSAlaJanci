@@ -1,0 +1,6 @@
+document:
+    id: primary
+    file: text
+    description: text
+    created: timestamp
+    remove: boolean

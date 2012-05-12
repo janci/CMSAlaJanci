@@ -1,0 +1,16 @@
+user:
+	id: primary
+    username: varchar
+    password: varchar
+    role: int
+
+#
+# seo is not use
+#seo:
+#	id: primary	
+#	title: varchar
+#	keywords: text
+#	description: text
+#	page_id:
+#		type: int
+#		foreign: page.id

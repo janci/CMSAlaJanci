@@ -77,6 +77,7 @@ class BaseAdminPresenter extends BasePresenter {
             }
 
             ksort($menu);
+            ksort($iconset);
             $this->template->menu  = $menu;
             $this->template->icons = $iconset;
         }

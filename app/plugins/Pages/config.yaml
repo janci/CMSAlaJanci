@@ -12,3 +12,4 @@ admin:
       title: Stránky
       link: 'AdminPages:default'
       icon: "icon.png"
+      weight: 10

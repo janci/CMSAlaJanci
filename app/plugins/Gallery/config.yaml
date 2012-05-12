@@ -17,7 +17,9 @@ admin:
       title: FotoAlbumy
       link: 'AdminGallery:default'
       icon: "gallery.png"
+      weight: 40
     photos:
       title: Fotografie
       link: 'AdminPhotos:default'
       icon: "photos.png"
+      weight: 45

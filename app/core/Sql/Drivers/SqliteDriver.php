@@ -47,13 +47,22 @@ class SqliteDriver extends NObject implements ISqlDriver {
         $macro = 'CREATE TABLE `{table}` ( {columns} )';
         $macro = str_replace('{table}', $table_name, $macro);
         $columns = array();
+        $indexes = '';
 
         foreach($table_config as $column=>$config){
             $columns[] = "`{$column}` {$config['type']} {$config['isnull']} {$config['default']}";
+            if(isset($config['foreign'])) $foreigns[$column] = $config['foreign'];
+        }
+        
+        
+        if(isset($foreigns)){
+            foreach($foreigns as $column=>$def){
+                list($reftable, $refindex) = explode('.',$def);
+                $columns[] = "FOREIGN KEY({$column}) REFERENCES {$reftable}({$refindex})";
+            }
         }
         
         $macro = str_replace('{columns}', implode(', ',$columns), $macro);
-        
         $connection->exec($macro);
         
     }
@@ -78,9 +87,13 @@ class SqliteDriver extends NObject implements ISqlDriver {
                     case 'primary':
                         $new_type = 'INTEGER PRIMARY KEY AUTOINCREMENT';
                         break;
+                    case 'boolean':
+                        $array_represent = true;
+                        $column_type = array();
+                        $column_type['default']=0;
+                        //continue as int
                     case 'datetime':
                     case 'timestamp':
-                    case 'boolean':
                     case 'bigint':
                     case 'tinyint':
                     case 'integer':
@@ -107,8 +120,11 @@ class SqliteDriver extends NObject implements ISqlDriver {
                 if($array_represent && isset($column_type['isnull']) && $column_type['isnull']==true)
                     $new_configuration[$table_name][$column_name]['isnull'] = 'NULL';
                 
-                if($array_represent && isset($column_type['default']))
+                if($array_represent && isset($column_type["default"]))
                     $new_configuration[$table_name][$column_name]['default'] = 'DEFAULT "'.$column_type['default'].'"';
+                
+                if($array_represent && isset($column_type["foreign"]))
+                    $new_configuration[$table_name][$column_name]['foreign'] = $column_type["foreign"];
                 
             }
         return $new_configuration;   

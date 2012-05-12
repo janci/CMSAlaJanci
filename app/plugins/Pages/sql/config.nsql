@@ -1,0 +1,10 @@
+page:
+    id: primary
+    url: varchar
+    title: varchar
+    content: text
+    created: timestamp
+    remove: boolean
+    parent:
+		type: int
+		foreign: page.id

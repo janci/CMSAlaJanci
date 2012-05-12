@@ -12,3 +12,4 @@ admin:
       title: Aktuality
       link: 'AdminNews:default'
       icon: "icon.png"
+      weight: 30
