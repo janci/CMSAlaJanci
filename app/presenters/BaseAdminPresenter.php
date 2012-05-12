@@ -13,10 +13,10 @@ class BaseAdminPresenter extends BasePresenter {
         public function startup(){
             parent::startup();
             if(!$this->getUser()->isLoggedIn() && $this->getAction()!='login') {
-                $this->redirect('login');
+                $this->redirect('Admin:login');
             }
             if($this->getUser()->isLoggedIn() && $this->getAction()=='login'){
-                $this->redirect('default');
+                $this->redirect('Homepage:default');
             }
             
             $this->db = $this->getService('database');
