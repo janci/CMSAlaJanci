@@ -36,11 +36,11 @@ abstract class BasePlugin extends NObject {
     }
     
     /**
-     * initialize all admin controls for plugin from components.yaml
+     * initialize all admin controls for plugin from components.yml
      */
     public function initializeAdminControls(NConnection $connection, NPresenter $presenter){
         $dir = $this->getDirectory();
-        $config_file = $dir.DIRECTORY_SEPARATOR.'components.yaml';
+        $config_file = $dir.DIRECTORY_SEPARATOR.'components.yml';
         if(file_exists($config_file)) {
             $config = spyc_load_file($config_file);
             
@@ -123,7 +123,7 @@ abstract class BasePlugin extends NObject {
         if(isset($this->config)) return $this->config;
         
         $dir = $this->getDirectory();
-        $config_file = $dir.DIRECTORY_SEPARATOR.'config.yaml';
+        $config_file = $dir.DIRECTORY_SEPARATOR.'config.yml';
 
         if(file_exists($config_file)){
             return $this->config = spyc_load_file($config_file);
