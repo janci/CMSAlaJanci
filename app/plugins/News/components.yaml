@@ -15,4 +15,4 @@ datagrid:
       created:
         title: Pridané
         type: date
-        created: 20%
+        width: 20%
