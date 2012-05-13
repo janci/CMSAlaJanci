@@ -40,6 +40,22 @@ class SqliteDriver extends NObject implements ISqlDriver {
     }
     
     protected function alter(NConnection $connection, $table_name, $table_config){
+        $macro = 'ALTER TABLE `{table}` {columns} ';
+        
+        $macro = str_replace('{table}', $table_name, $macro);
+        $columns = array();
+        
+        $tbx_columns = $connection->getSupplementalDriver()->getColumns($table_name);
+        $tb_columns = array();
+        foreach($tbx_columns as $tb_column) $tb_columns[$tb_column['name']] = $tb_column;
+        
+        foreach($table_config as $column=>$config){
+            if(isset($tb_columns[$column])) continue;
+            if($config['foreign']!='') $config['isnull'] = 'NULL';
+            $columns[] = "ADD `{$column}` {$config['type']} {$config['isnull']} {$config['default']} {$config['foreign']}";
+            $macro_sql = str_replace('{columns}', implode(', ',$columns), $macro);
+            $connection->exec($macro_sql);
+        }
         
     }
     
@@ -47,24 +63,13 @@ class SqliteDriver extends NObject implements ISqlDriver {
         $macro = 'CREATE TABLE `{table}` ( {columns} )';
         $macro = str_replace('{table}', $table_name, $macro);
         $columns = array();
-        $indexes = '';
 
         foreach($table_config as $column=>$config){
-            $columns[] = "`{$column}` {$config['type']} {$config['isnull']} {$config['default']}";
-            if(isset($config['foreign'])) $foreigns[$column] = $config['foreign'];
-        }
-        
-        
-        if(isset($foreigns)){
-            foreach($foreigns as $column=>$def){
-                list($reftable, $refindex) = explode('.',$def);
-                $columns[] = "FOREIGN KEY({$column}) REFERENCES {$reftable}({$refindex})";
-            }
+            $columns[] = "`{$column}` {$config['type']} {$config['unique']} {$config['isnull']} {$config['default']} {$config['foreign']}";
         }
         
         $macro = str_replace('{columns}', implode(', ',$columns), $macro);
         $connection->exec($macro);
-        
     }
     
     /**
@@ -113,18 +118,23 @@ class SqliteDriver extends NObject implements ISqlDriver {
                 }
                 
                 
-                $new_configuration[$table_name][$column_name] = array('default'=>'', 'isnull'=>'NOT NULL');
+                $new_configuration[$table_name][$column_name] = array('default'=>'', 'unique'=>'', 'foreign'=>'', 'isnull'=>'NOT NULL');
                 
                 $new_configuration[$table_name][$column_name]['type'] = $new_type;
                 
                 if($array_represent && isset($column_type['isnull']) && $column_type['isnull']==true)
                     $new_configuration[$table_name][$column_name]['isnull'] = 'NULL';
                 
+                if($array_represent && isset($column_type['unique']) && $column_type['unique']==true)
+                    $new_configuration[$table_name][$column_name]['unique'] = 'UNIQUE';
+                
                 if($array_represent && isset($column_type["default"]))
                     $new_configuration[$table_name][$column_name]['default'] = 'DEFAULT "'.$column_type['default'].'"';
                 
-                if($array_represent && isset($column_type["foreign"]))
-                    $new_configuration[$table_name][$column_name]['foreign'] = $column_type["foreign"];
+                if($array_represent && isset($column_type["foreign"])) {
+                    list($reftable, $refindex) = explode('.',$column_type['foreign']);
+                    $new_configuration[$table_name][$column_name]['foreign'] = "REFERENCES {$reftable}({$refindex}) ON DELETE CASCADE ON UPDATE CASCADE";
+                }
                 
             }
         return $new_configuration;   
