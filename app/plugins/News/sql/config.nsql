@@ -4,6 +4,3 @@ new:
     content: text
     created: timestamp
     remove: boolean
-    test: 
-        type: foreign
-        foreign: album.id
