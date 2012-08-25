@@ -16,11 +16,11 @@ abstract class BasePresenter extends NPresenter
     protected function startup() {
         parent::startup();
         $this->component_builder = new ComponentBuilder($this, $this->getService('publisher'));
+        $this->component_builder->loadPlugins();
     }
     
     protected function beforeRender() {
         parent::beforeRender();
-        $this->component_builder->loadPlugins();
         $this->component_builder->filter();
     }
     

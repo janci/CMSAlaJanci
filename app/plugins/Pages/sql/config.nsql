@@ -8,3 +8,4 @@ page:
     parent:
         type: int
         foreign: page.id
+        isnull: true

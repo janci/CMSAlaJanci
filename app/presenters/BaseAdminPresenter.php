@@ -20,6 +20,11 @@ class BaseAdminPresenter extends BasePresenter {
             }
             
             $this->db = $this->getService('database');
+            
+            $plugins = $this->component_builder->getPlugins();
+            foreach($plugins as $plugin)
+                $plugin->initializeAdminControls($this->getService('database'), $this);
+            //dump( $this['pageedit']);
         }
         
         protected function beforeRender() {
@@ -31,7 +36,6 @@ class BaseAdminPresenter extends BasePresenter {
             /* @var $publisher Publisher */
             $publisher = $this->getService('publisher');
             foreach($plugins as $plugin){
-                $plugin->initializeAdminControls($this->getService('database'), $this);
                 $config = $plugin->getConfig();
                 if(isset($check_names[$config['name']])) continue;
                 $check_names[$config['name']] = true;

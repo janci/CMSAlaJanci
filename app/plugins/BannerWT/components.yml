@@ -1,0 +1,34 @@
+datagrid:
+  bannerwtgrid:
+    table: bannerwt
+    add:
+       title: Pridať banner
+       link: 'AdminBanner:add'
+    actions:
+      edit: 'AdminBanner:edit'
+      delete: 'remove!'
+    columns:
+      name:
+        title: Názov
+        type: text
+        width: 90%
+form:
+  bannerwtedit:
+    table: bannerwt
+    items:
+      group1:
+        title: Nastavenie bannera
+        type: block
+      name:
+        title: Názov bannera
+        type: text
+      image:
+        title: Obrázok bannera
+        type: text
+      group2:
+        title: Text bannera
+        type: block
+      content:
+        title: Text bannera
+        type: textarea
+        

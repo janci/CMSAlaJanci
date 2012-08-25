@@ -1,0 +1,38 @@
+datagrid:
+  pagegrid:
+    table: page
+    add:
+       title: Pridať stránku
+       link: 'AdminPages:add'
+    actions:
+      edit: 'AdminPages:edit'
+      delete: 'remove!'
+    columns:
+      title:
+        title: Stránka
+        type: text
+        width: 70%
+      url:
+        title: Url
+        type: text
+        width: 20%
+form:
+  pageedit:
+    table: page
+    items:
+      group1:
+        title: Nastavenie stránky
+        type: block
+      title:
+        title: Nadpis stránky
+        type: text
+      url:
+        title: Url adresa
+        type: text
+      group2:
+        title: Obsah stránky
+        type: block
+      content:
+        title: Obsah stránky
+        type: textarea
+        

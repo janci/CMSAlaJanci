@@ -1,0 +1,15 @@
+name: bannerwt
+controls: [bannerwt]
+admin:
+  menu:
+    pages:
+      title: Banner
+      link: 'AdminBanner:default'
+      current: 'AdminBanner:*'
+      weight: 13
+  icon:
+    pages:
+      title: Banner
+      link: 'AdminBanner:default'
+      icon: "icon.png"
+      weight: 13

@@ -43,6 +43,16 @@ abstract class BasePlugin extends NObject {
         $config_file = $dir.DIRECTORY_SEPARATOR.'components.yml';
         if(file_exists($config_file)) {
             $config = spyc_load_file($config_file);
+            if(isset($config['form'])){
+                foreach($config['form'] as $formname=>$formconfig){
+                    $form = new AdminForm();
+                    $table = $formconfig['table'];
+                    $form->setTable($connection->table($table)->where('remove',0));
+                    $form->configure($formconfig);
+                    $presenter[$formname] = $form;
+                }
+                    
+            }
             
             if(isset($config['datagrid'])){
                 foreach($config['datagrid'] as $dgname=>$dgconfig){

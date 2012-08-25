@@ -1,0 +1,7 @@
+bannerwt:
+    id: primary
+    name: varchar
+    image: varchar
+    content: text
+    created: timestamp
+    remove: boolean

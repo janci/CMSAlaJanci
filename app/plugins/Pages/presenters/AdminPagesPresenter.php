@@ -14,14 +14,17 @@ class AdminPagesPresenter extends BaseAdminPresenter {
     }
 
     public function handleRemove($id){
-        $a = $this->db->table('page')->where('url',$id)->update(array('remove'=>1, 'url'=> uniqid()));
+        $a = $this->db->table('page')->where('id',$id)->update(array('remove'=>1, 'url'=> uniqid()));
         if (isset($a) && is_numeric($a)) 
             $this->flashMessage('Stránka bola úspešne vymazaná', 'success');
         else
             $this->flashMessage('Stránku sa nepodarilo vymazať', 'error');
-        $this->redirect('pages');
+        $this->redirect('default');
     }
 
+    public function actionAdd(){
+        $this->setView('edit');
+    }
     public function actionEdit($id){
         $this->page_id = $id;
     }

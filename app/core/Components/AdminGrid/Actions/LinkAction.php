@@ -24,7 +24,7 @@ class LinkAction implements IDatagridAction {
     }
     
     public function getLink(NControl $control, $record_id) {
-        return $control->getPresenter()->link($this->link);
+        return $control->getPresenter()->link($this->link, array('id'=>$record_id));
     }
     
 
