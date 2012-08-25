@@ -6,5 +6,5 @@ page:
     created: timestamp
     remove: boolean
     parent:
-		type: int
-		foreign: page.id
+        type: int
+        foreign: page.id
