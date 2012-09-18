@@ -49,8 +49,11 @@ class AdminForm extends CMSControl {
         if(isset($id)) {
             
             $this->form->onSuccess[] = array($this, 'update');
-            if(!$this->form->isSubmitted() )
-                $this->form->setValues($this->table->where('id', $id)->fetch()->toArray());
+            if(!$this->form->isSubmitted() ) {
+                $data = $this->table->where('id', $id)->fetch();
+                if($data != false)
+                $this->form->setValues($data->toArray());
+            }
         } else {
             $this->form->onSuccess[] = array($this, 'insert');
         }

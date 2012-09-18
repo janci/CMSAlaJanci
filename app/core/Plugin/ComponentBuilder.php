@@ -64,7 +64,7 @@ class ComponentBuilder extends NObject {
             if(!class_exists($class)) continue;
             
             if(is_subclass_of($class, 'BasePlugin')){
-                $plugin_name = NStrings::lower($class);
+                $plugin_name = str_replace('plugin', '', NStrings::lower($class));
                 $plugin = new $class;
                 $plugin->installSql($this->presenter->getService('database'));
                 
