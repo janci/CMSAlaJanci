@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="keywords" content="základná škola hostice, hostice, obec hostice, škola, vyučovanie, infovek" />
+  <meta name="description" content="Vitajte na oficiálnych internetových stránkach Základnej školy s materskou školou 
+s vyučovacím a výchovným jazykom maďarským v Hosticiach. História školy." />
+  <title>Základná škola Hostice</title>
+
+<!-- Stylesheets Start //-->
+<link rel="shortcut icon" href="{$basePath}/images/favicon.ico"/>
+<link href="{$basePath}/styles.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{$basePath}/lib/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="{$basePath}/lib/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="{$basePath}/lib/jquery.coda-slider-2.0.js"></script>
+<!-- Initialize each slider on the page. Each slider must have a unique id -->
+	<script type="text/javascript">
+	$().ready(function() {
+       $('#coda-slider-2').codaSlider({
+           autoSlide: true,
+           autoSlideInterval: 6000,
+           autoSlideStopWhenClicked: true	
+			   
+       });
+   });
+</script>
+<!-- End JavaScript -->
+
+
+</head>
+<div id="main">
+<!-- header begins -->
+<div id="header">
+	
+	<div id="logo">
+	  <h2>&nbsp;</h2>
+    </div>
+    <div id="buttons">
+      <a href="#" class="but"  title="">História</a><div class="but_razd"></div>
+      <a href="#" class="but" title="">Súčasnosť</a><div class="but_razd"></div>
+      <a href="#" class="but" title="">Záujmové činnosti</a><div class="but_razd"></div>
+      <a href="#" class="but" title="">Projekty</a><div class="but_razd"></div>
+	  <a href="#" class="but" title="">Fotogaléria</a><div class="but_razd"></div>
+      <a href="#" class="but" title="">Kontakt</a>
+    </div>
+</div>
+<!-- header ends -->
+{var banners = $presenter->getService('database')->table('bannerwt')->where('remove',0)}
+<div class="top">
+    
+        <div class="coda-slider-wrapper">
+	<div class="coda-slider preload" id="coda-slider-2">
+                <div class="panel" n:foreach="$banners as $banner" style="height: 265px;">
+                    <div class="panel-wrapper">
+                        <div class="prev_but_center">
+                            <div class="prev_but_center_left">
+                                <div class="prev_img"><img src="images/img11.jpg" alt="" title=""/></div>
+                            </div>
+                            <div class="prev_but_center_right">
+                                <h1>{$banner->title}</h1>
+                                <p><span class="span_top">{$banner->content}</span></p>
+                            </div>
+                        </div>	
+                    </div>
+                </div>
+        </div>
+        </div>
+   
+ </div>
+
+        <!-- content begins -->
+    <div id="content">
+        <div style="clear: both"></div>
+        <div style="height:25px; width: 100%"></div>
+        {include #title}
+        <img src="images/img12.jpg" width="329" height="202" class="img_l" alt="" />
+        {include #content}
+        <div style="height:5px; width: 100%"></div>
+        <div style="height:35px; width: 100%"></div>
+        <div style="clear: both"></div>         
+  </div>
+    <!-- content ends --> 
+    <!-- bottom begin -->
+    <div id="bottom">
+   	  <div style="height:5px; width: 100%"></div>
+   	  <div id="b_col1">
+        	<h1>História</h1>
+            <div style="height:5px; width: 100%"></div>
+      </div>
+    	<div id="b_col2">
+        	<h1>Súčasnosť</h1>
+      </div>
+      <div id="b_col3">
+       	  <h1>Záujmové činnosti</h1>
+   	  </div>
+      <div id="b_col4">
+      		<h1>Projekty</h1>
+      </div>
+      <div style="clear: both; height:15px;"></div>
+    </div>
+    
+     <!-- bottom end --> 
+<!-- footer begins -->
+
+<div id="footer">
+{dump $presenter->getComponents()}
+{control copyright}
+ </div>           
+<!-- footer ends -->
+<div style="clear: both; height:30px;"></div>
+</div>
+
+</body>
+</html>
+

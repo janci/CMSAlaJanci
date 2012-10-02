@@ -20,14 +20,17 @@ form:
         title: Nastavenie bannera
         type: block
       name:
-        title: Názov bannera
+        title: Názov
         type: text
       image:
-        title: Obrázok bannera
+        title: Obrázok
         type: text
       group2:
         title: Text bannera
         type: block
+      title:
+        title: Nadpis
+        type: text
       content:
         title: Text bannera
         type: textarea

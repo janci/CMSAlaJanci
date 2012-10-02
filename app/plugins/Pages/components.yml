@@ -32,7 +32,10 @@ form:
       group2:
         title: Obsah stránky
         type: block
+      banner:
+        title: Zobraziť banner
+        type: checkbox
       content:
         title: Obsah stránky
-        type: textarea
+        type: wysiwyg
         

@@ -7,4 +7,10 @@ jQuery(function($){
 			debug: true
 		});
 	});
+	
+	$('.wysiwyg').each(function(){ 
+		var editor = CKEDITOR.replace( this ); 
+		CKFinder.setupCKEditor( editor, '/admin_v1/ckfinder/' );
+	});
+	
 });

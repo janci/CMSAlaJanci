@@ -1,3 +1,9 @@
+{layout $page->banner? '@layout.latte':'@withoutBanner.latte'}
+
+
+{#title}
+<h2>{$page->title}</h2>
+{/#}
 {#content}
 {!$page->content}
 {/#}

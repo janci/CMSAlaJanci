@@ -2,6 +2,7 @@ bannerwt:
     id: primary
     name: varchar
     image: varchar
+    title: varchar
     content: text
     created: timestamp
     remove: boolean

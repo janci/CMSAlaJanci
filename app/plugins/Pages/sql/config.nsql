@@ -5,6 +5,7 @@ page:
     content: text
     created: timestamp
     remove: boolean
+    banner: boolean
     parent:
         type: int
         foreign: page.id

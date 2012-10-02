@@ -20,5 +20,8 @@ class AdminBannerPresenter extends BaseAdminPresenter {
     public function actionAdd(){
         $this->setView('edit');
     }    
+    
+    public function actionEdit($id){
+    }
 }
 

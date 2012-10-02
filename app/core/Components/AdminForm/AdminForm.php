@@ -35,6 +35,7 @@ class AdminForm extends CMSControl {
             switch($item['type']){
                 case "block": $this->form->addGroup($label); break;
                 case "text": $this->form[$name] = new NTextInput($label); break;
+                case "wysiwyg": $this->form[$name] = new NTextArea($label); $this->form[$name]->getControlPrototype()->addClass('wysiwyg'); break;
                 case "textarea": $this->form[$name] = new NTextArea($label, 40, 10); break;
                 case "checkbox": $this->form[$name] = new NCheckbox($label); break;
             }
@@ -47,7 +48,6 @@ class AdminForm extends CMSControl {
         parent::attached($presenter);
         $this->id = $id = $presenter->getParameter('id');
         if(isset($id)) {
-            
             $this->form->onSuccess[] = array($this, 'update');
             if(!$this->form->isSubmitted() ) {
                 $data = $this->table->where('id', $id)->fetch();

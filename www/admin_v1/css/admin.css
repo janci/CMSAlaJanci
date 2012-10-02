@@ -105,6 +105,10 @@ div.contact-message {background-color: #DDD; padding: 10px; padding-bottom: 20px
 
 div.pages-edit form {margin-left: 30px; width: 450px;}
 div.pages-edit textarea {width: 300px;}
+
+#subpage.pages-edit #frm-pageedit-form fieldset {width: 713px;}
+textarea.wysiwyg {width: 644px;}
+.cke_1 {width: 644px;}
 #subpage.pages-edit form fieldset {width: 430px; float: left;}
 
 .message-img {width: 48px; height: 48px; float: right; margin-top: 3px; }

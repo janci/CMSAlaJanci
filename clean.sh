@@ -1,5 +1,6 @@
 #!/bin/bash
 rm -rf www/pub
+rm -rf www/ckfinder
 rm -rf temp/cache/_Nette.*
 
 database=app/database/data.sq3
